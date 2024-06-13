@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Servlet</title>
+</head>
+<body>
+    <h1>Calling Hello Servlet</h1>
+    <button onclick="callServlet()">Call Servlet</button>
+    <div id="response"></div>
+
+    <script>
+        function callServlet() {
+            fetch('/hello')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('response').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
