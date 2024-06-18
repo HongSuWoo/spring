@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>first</title>
+</head>
+<body>
+<div id="result">
+    <h1 id="dataValue"></h1>
+</div>
+
+<select id="select1" onchange="updateLabel(this.value)">
+    <option value="두비두비" id="one">1번</option>
+    <option value="다바다바" id="two">2번</option>
+    <option value="아자차카" id="three">3번</option>
+    <option value="가라사대" id="four">4번</option>
+</select>
+
+<br><br>
+
+<span id="labelValue"></span>
+
+<script>
+    window.onload = function () {
+        var params = new URLSearchParams(window.location.search);
+        var dataValue = params.get('data');
+        document.getElementById('dataValue').textContent = dataValue;
+    };
+
+    function updateLabel(value) {
+        var label = document.getElementById('labelValue');
+        // select1 요소의 id에 따라 처리
+        if (value === "두비두비")
+        {
+            label.textContent =  value;
+        } else if (value === "다바다바")
+        {
+            window.location.href = "/";
+            alert("잘못된 요청");
+        } else {
+            label.textContent = " ";
+        }
+    }
+</script>
+
+</body>
+</html>
